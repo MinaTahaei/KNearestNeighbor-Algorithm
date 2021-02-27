@@ -5,6 +5,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
 
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 
@@ -28,3 +32,16 @@ classifier = KNeighborsClassifier(n_neighbors=5)
 classifier.fit(X_train, y_train)
 y_pred = classifier.predict(X_test)
 print(classification_report(y_test, y_pred))
+
+# accuracy: (tp + tn) / (p + n)
+accuracy = accuracy_score(y_test, y_pred)
+print('Accuracy: %f' % accuracy)
+# precision tp / (tp + fp)
+# precision = precision_score(y_test, y_pred)
+# print('Precision: %f' % precision)
+# recall: tp / (tp + fn)
+# recall = recall_score(y_test, y_pred)
+# print('Recall: %f' % recall)
+# f1: 2 tp / (2 tp + fp + fn)
+# f1 = f1_score(y_test, y_pred)
+# print('F1 score: %f' % f1)
